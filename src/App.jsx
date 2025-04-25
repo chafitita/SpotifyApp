@@ -7,7 +7,7 @@ function App() {
     <>
       <body>
         <header>
-          <h1>SpotifyApp</h1>
+          <h1 className:'monoton-regular'>SpotifyApp</h1>
 
         </header>
         <h1>aslkdhasdlkflkfahslksh</h1>
