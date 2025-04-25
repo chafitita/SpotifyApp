@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import background from './assets/background-op3.gif'
+import title from './assets/Synthify-25-4-2025.png'
 import './css/App.css'
 
 function App() {
@@ -6,11 +8,10 @@ function App() {
   return (
     <>
       <body>
+        <img src={background} alt="fondo" className='background'/>
         <header>
-          <h1 className:'monoton-regular'>SpotifyApp</h1>
-
+          <img src={title} alt="title" className='title'/>
         </header>
-        <h1>aslkdhasdlkflkfahslksh</h1>
       </body>
     </>
   )
