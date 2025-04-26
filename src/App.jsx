@@ -3,6 +3,8 @@ import background from './assets/background-op3.gif'
 import title from './assets/Synthify-25-4-2025.png'
 import './css/App.css'
 import LoadingScreen from './components/LoadingScreen'
+import axios from 'axios'
+import { data } from 'react-router-dom'
 
 function App() {
 
@@ -13,6 +15,30 @@ function App() {
       setIsLoading(false)
     }, 3000)
   }, [])
+
+  const clientID = "c34bbd055fe34de9acb842540116fc60"
+  const clientSecret = "eb3d3f955f124b06a4fae64a4990a8cf"
+
+  function requestToken(){
+    axios.post("https://accounts.spotify.com/api/token",
+      {
+        grant_type : "client_credentials",
+        client_id : clientID,
+        client_secret : clientSecret
+      },
+      {
+        headers: {
+          "Content-Type" : "application/x-www-form-urlencoded"
+        },
+      })
+      .then((data) =>{
+        console.log("Token Obtenido")
+        axios.defaults.headers.common["Authorization"] = "Bearer " + data.data.access_token
+      })
+      .catch((error) => {
+        console.log("Error")
+      })
+  }
 
   return (
     <div className="app-container">
