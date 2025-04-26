@@ -24,6 +24,7 @@ footer {
   display: flex;
   justify-content: center; 
   gap: 15px; 
+  border: rgb(82, 37, 119) solid;
 }
 
 .background {
@@ -37,10 +38,10 @@ footer {
 }
 
 header {
-  background-color: rgba(30, 0, 54, 0.90);
+  background-color: rgba(30, 0, 54, 0.75);
   padding: 20px;
   text-align: center;
-  opacity: 75%;
+  border: rgb(82, 37, 119) solid;
 }
 
 .title {
@@ -54,4 +55,9 @@ header {
   width: 5vw;
   height: 5vh;
   color: white;
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+.github-icon:hover{
+  color: #FF69B4;
+  text-shadow: 0 0 10px #FF69B4;
 }

@@ -1,11 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import background from './assets/background-op3.gif'
 import title from './assets/Synthify-25-4-2025.png'
 import './css/App.css'
+import LoadingScreen from './components/LoadingScreen'
 
 function App() {
+
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 3000)
+  }, [])
+
   return (
     <div className="app-container">
+      {isLoading && <LoadingScreen />}
       <img src={background} alt="fondo" className='background'/>
       <header>
         <img src={title} alt="title" className='title'/>
