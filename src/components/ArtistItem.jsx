@@ -4,9 +4,7 @@ export function ArtistItem({artist}){
     const artistImage = artist.images?.length > 0  ? artist.images[0].url : defaultImage;
     return(
         <div className="artist-item-container">
-            {artist.images && artist.images.length > 0 && (
-                <img src={artistImage} alt={artist.name} className="artist-img"/>
-            )}
+            <img src={artistImage} alt={artist.name} className="artist-img"/>
             <h2>{artist.name}</h2>
         </div>
     )
