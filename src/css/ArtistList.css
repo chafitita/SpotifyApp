@@ -1,0 +1,48 @@
+.artist-list{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5vw;
+    list-style: none;
+    margin: 16px;
+    
+}
+.artist-li{
+    width: 200px;
+    height: 280px;
+    padding: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(30, 0, 54, 0.8);
+    color: white;
+    animation: 2s pulsate infinite;
+}
+.artist-li img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    padding: 2.5px;
+}
+@keyframes pulsate{
+    0%{
+        box-shadow: 0 0 7px 1px #FF00FF;
+    }
+    50%{
+        box-shadow: 0 0 7px 4px #FF00FF;
+    }
+    100%{
+        box-shadow: 0 0 7px 1px #FF00FF;
+    }
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.artist-li:hover{
+    box-shadow: 0 0 14px 4px #FF00FF;
+    animation: none;
+}

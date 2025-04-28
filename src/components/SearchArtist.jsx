@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { ArtistList } from "./ArtistList";
+import '../css/SearchArtist.css'
+
 
 export function SearchArtist(){
     const [query, setQuery] = useState("")
@@ -18,19 +20,22 @@ export function SearchArtist(){
     }
     return(
         <div className="form-container">
-            <form onSubmit={handleSearch}>
+            <form onSubmit={handleSearch} className="form-solo">
                 <input
+                    className="search-input"
                     type="text"
                     value={query}
                     onChange={(e)=>setQuery(e.target.value)}
-                    placeholder="Ingrese el nombre del artista"
+                    placeholder="Search Artist..."
                 />
-                <button type="submit">
-                    Buscar
+                <button type="submit" className="search-btn">
+                    {/* <img src={searchIcon}/> */}
+                    Search
                 </button>
             </form>
-
-            {artists.length > 0 && <ArtistList artists={artists}/>}
+            <div className="list-container">
+                {artists.length > 0 && <ArtistList artists={artists}/>}
+            </div>
         </div>
     )
 }
