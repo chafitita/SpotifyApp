@@ -1,0 +1,29 @@
+.album-item-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5vw;
+    margin: 1vh;
+    background-color: rgba(30, 0, 54, 0.5);
+    border: rgb(82, 37, 119) solid;
+    box-shadow: 0 0 7px 1px rgba(0,254,252);
+    margin: 5px;
+    animation: pulsate-li 1s infinite;
+}
+.album-img{
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+@keyframes pulsate-li{
+    0%{
+        box-shadow: 0 0 7px 1px rgba(0,254,252);
+    }
+    50%{
+        box-shadow: 0 0 7px 4px rgba(0,254,252);
+    }
+    100%{
+        box-shadow: 0 0 7px 1px rgba(0,254,252);
+    }
+}

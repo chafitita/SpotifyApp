@@ -1,3 +1,5 @@
+import '../css/AlbumItem.css'
+
 export function AlbumItem({album}){
     const defaultImage = 'https://upload.wikimedia.org/wikipedia/commons/2/26/512px_album_cover_placeholder.png';
     const albumImage = album.images?.length > 0 ? album.images[0].url : defaultImage;

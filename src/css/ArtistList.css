@@ -45,4 +45,5 @@ a{
 .artist-li:hover{
     box-shadow: 0 0 14px 4px #FF00FF;
     animation: none;
+    transform: scale(1.05);
 }

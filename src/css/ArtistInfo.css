@@ -1,0 +1,55 @@
+.artist-info-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+.artist-img{
+    flex-grow: 1;
+    width: 20vw;
+    height: auto;
+}
+.back-btn{
+    position:absolute;
+    width: 6.5vw;
+    height: auto;
+    top: 20px;
+    left: -25px;
+    cursor: grab;
+    border: 3px #ffa500 solid;
+    box-shadow:0 0 10px 3px #ffa500;
+    background-color: rgba(30, 0, 54, 0.5);
+    color: white;
+}
+.artist-info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(30, 0, 54, 0.5);
+    animation: pulsate 2s infinite;
+}
+.album-list{ 
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.album-list img{
+    width: 10vw;
+    height: auto;
+}
+@keyframes pulsate{
+    0%{
+        box-shadow: 0 0 7px 1px #FF00FF;
+    }
+    50%{
+        box-shadow: 0 0 7px 4px #FF00FF;
+    }
+    100%{
+        box-shadow: 0 0 7px 1px #FF00FF;
+    }
+}

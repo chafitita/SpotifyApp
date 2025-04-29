@@ -50,8 +50,8 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        {isLoading && <LoadingScreen />}
-        <img src={background} alt="fondo" className='background'/>
+        {isLoading && <LoadingScreen text="Tuning Synthify..."/>}
+        <img src={background} alt="background" className='background'/>
         <header>
           <img src={title} alt="title" className='title'/>
         </header>

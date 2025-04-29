@@ -4,6 +4,8 @@ import { use, useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { AlbumList } from "./AlbumList";
+import LoadingScreen from "./LoadingScreen";
+import '../css/ArtistInfo.css'
 
 export function ArtistInfo(){
     const [loading, setLoading] = useState(true)
@@ -31,7 +33,7 @@ export function ArtistInfo(){
     },[id])
 
     if (loading){
-        return <div className="loading"> Cargando Información del Artista</div>
+        return <LoadingScreen text="Searching..."/>
     }
 
     const defaultImage = 'https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2/image-size/large?v=v2&px=999'
@@ -39,14 +41,16 @@ export function ArtistInfo(){
 
     return(
         <div className="artist-info-container">
-            <button onClick={ () => navigate(-1)}>
-                Volver
+            <button onClick={ () => navigate(-1)} className="back-btn">
+                Back
             </button>
-
-            <img src={artistImage} alt={artist.name} className="artist-img"/>
-            <h2>{artist.name}</h2>
-
+          <div className="artist-info">
+              <img src={artistImage} alt={artist.name} className="artist-img"/>
+              <h2>{artist.name}</h2>
+          </div>
+        <div className="album-list">
             {albums.length > 0 && <AlbumList albums={albums}/>}
         </div>
+      </div>
     )
 }
