@@ -5,11 +5,11 @@
     align-items: center;
     gap: 2.5vw;
     margin: 1vh;
-    background-color: rgba(30, 0, 54, 0.5);
+    background-color: rgba(30, 0, 54, 0.611);
     border: rgb(82, 37, 119) solid;
-    box-shadow: 0 0 7px 1px rgba(0,254,252);
+    box-shadow: 0 0 7px 1px rgb(82, 37, 119);
     margin: 5px;
-    animation: pulsate-li 1s infinite;
+    animation: pulsate-li 0.5s infinite;
 }
 .album-img{
     width: 100%;
@@ -18,12 +18,12 @@
 }
 @keyframes pulsate-li{
     0%{
-        box-shadow: 0 0 7px 1px rgba(0,254,252);
+        box-shadow: 0 0 7px 1px rgb(161, 125, 190);
     }
     50%{
-        box-shadow: 0 0 7px 4px rgba(0,254,252);
+        box-shadow: 0 0 7px 4px rgb(82, 37, 119);
     }
     100%{
-        box-shadow: 0 0 7px 1px rgba(0,254,252);
+        box-shadow: 0 0 7px 1px rgb(63, 28, 91);
     }
 }

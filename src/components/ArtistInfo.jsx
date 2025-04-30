@@ -13,6 +13,7 @@ export function ArtistInfo(){
     const navigate = useNavigate()
     const [artist, setArtist] = useState(null)
     const [albums, setAlbums] = useState([])
+    const [topTracks, setTopTracks] = useState([])
 
     useEffect(() => {
         setLoading(true)
@@ -41,6 +42,9 @@ export function ArtistInfo(){
 
     return(
         <div className="artist-info-container">
+          <div className="btn-container">
+            
+          </div>
             <button onClick={ () => navigate(-1)} className="back-btn">
                 Back
             </button>

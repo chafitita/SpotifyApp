@@ -4,3 +4,6 @@
 .album-list-container{
     margin: 10px;
 }
+.album-li{
+    width: 100%;
+}
