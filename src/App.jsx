@@ -8,6 +8,7 @@ import { data } from 'react-router-dom'
 import { SearchArtist } from './components/SearchArtist'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { ArtistInfo } from './components/ArtistInfo'
+import { AlbumInfo } from './components/AlbumInfo'
 
 function App() {
 
@@ -59,6 +60,7 @@ function App() {
           <Routes>
             <Route path="/" element={<SearchArtist/>}/>
             <Route path="/artist/:id" element={<ArtistInfo/>}/>
+            <Route path="/album/:id" element={<AlbumInfo/>}/>
           </Routes>
         </main>
         <footer>
