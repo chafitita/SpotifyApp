@@ -1,5 +1,6 @@
 import React from 'react'
 import { TrackItem } from './TopTrackItem'
+import '../css/TopTracks.css'
 
 export function TopTracks({topTracks}){
   return (
@@ -7,7 +8,7 @@ export function TopTracks({topTracks}){
         <ul className='TTracks-list'>
             {topTracks.map((track) => (
                 <li key={track.id} className='TTracks-li'>
-                    <TrackItem track={track}/>
+                    <TrackItem topTrack={track}/>
                 </li>
             ))}
         </ul>

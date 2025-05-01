@@ -57,14 +57,16 @@ export function ArtistInfo(){
             </button>
           </div>
           <div className="artist-info">
+            <div className="artist-details">
               <img src={artistImage} alt={artist.name} className="artist-img"/>
               <h2>{artist.name}</h2>
+            </div>
+              <div className="top-tracks">
+                {topTracks?.length > 0 && <TopTracks topTracks={topTracks}/>}
+              </div>
           </div>
         <div className="album-list">
             {albums.length > 0 && <AlbumList albums={albums}/>}
-        </div>
-        <div className="top-tracks">
-          {topTracks?.length > 0 && <TopTracks topTracks={topTracks}/>}
         </div>
       </div>
     )
