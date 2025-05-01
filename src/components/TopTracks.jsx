@@ -1,5 +1,5 @@
 import React from 'react'
-import { TrackItem } from './TrackItem'
+import { TrackItem } from './TopTrackItem'
 
 export function TopTracks({topTracks}){
   return (
