@@ -29,7 +29,6 @@ export function SearchArtist(){
                     placeholder="Search Artist..."
                 />
                 <button type="submit" className="search-btn">
-                    {/* <img src={searchIcon}/> */}
                     Search
                 </button>
             </form>
