@@ -19,8 +19,8 @@ function App() {
     }, 3000)
   }, [])
 
-  const clientID = "c34bbd055fe34de9acb842540116fc60"
-  const clientSecret = "eb3d3f955f124b06a4fae64a4990a8cf"
+  const clientID = import.meta.env.VITE_SPOTIFY_CLIENT_ID
+  const clientSecret = import.meta.env.VITE_SPOTIFY_CLIENT_SECRET
 
   function requestToken(){
     axios.post("https://accounts.spotify.com/api/token",
