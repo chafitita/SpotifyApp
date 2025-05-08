@@ -51,7 +51,7 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        {isLoading && <LoadingScreen text="Tuning Synthify..."/>}
+        {/* {isLoading && <LoadingScreen text="Tuning Synthify..."/>} */}
         <img src={background} alt="background" className='background'/>
         <header>
           <img src={title} alt="title" className='title'/>

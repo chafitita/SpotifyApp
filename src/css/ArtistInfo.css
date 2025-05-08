@@ -29,12 +29,13 @@
 }
 .artist-info{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     padding: 10px;
     margin: 10px;
     background-color: rgba(30, 0, 54, 0.5);
     animation: pulsate 2s infinite;
+    gap: 3.5vw;
 }
 .album-list{ 
     display: flex;
