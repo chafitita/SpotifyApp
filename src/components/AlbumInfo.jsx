@@ -45,8 +45,10 @@ export function AlbumInfo(){
                     Back
                 </button>
             </div>  
-            <h2>{artistNames}</h2>
-            <h2>{album.name}</h2>
+            <div className="artist-detail">
+              <h2>{artistNames}</h2>
+              <h2>{album.name}</h2>
+            </div>
             <div className="track-list">
                 <TrackList tracks={tracks}/>
             </div>

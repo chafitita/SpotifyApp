@@ -16,6 +16,43 @@
     object-fit: cover;
     overflow: hidden;
 }
+ul.track-list {
+    width: 100%;
+    list-style: none;
+    background-color: rgba(30, 0, 54, 0.5);
+    padding: 2vw;
+    margin: 2vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-between;
+    align-items: flex-start;
+    gap: 1vw;
+    color: rgb(188 123 242);
+    font-family: monospace;
+    border: rgb(82, 37, 119) solid;
+}
+.album-info-container {
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+}
+.track-item-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    gap: 2vw;
+}
+.artist-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgba(30, 0, 54, 0.5);
+    border: rgb(82, 37, 119) solid;
+    width: 50vw;
+}
 @keyframes pulsate-li{
     0%{
         box-shadow: 0 0 7px 1px rgb(161, 125, 190);

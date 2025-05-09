@@ -4,3 +4,9 @@
 .TTracks-li{
     margin: 0.25vw;
 }
+.TTracks-container{
+    color: rgb(188 123 242);
+    text-decoration: underline #FFA500;
+    font-family: monospace;
+}
+
