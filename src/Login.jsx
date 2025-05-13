@@ -1,6 +1,7 @@
+import { useEffect } from 'react';
 
 const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
-const redirectUri = import.meta.env.VITE_REDIRECT_URI || "http://localhost:5173/callback";
+const redirectUri = import.meta.env.VITE_REDIRECT_URI || "http://127.0.0.1:5173/callback";
 
 const scopes = [
   "user-read-private",
@@ -9,14 +10,27 @@ const scopes = [
   "user-library-read"
 ].join(" ");
 
+function generateRandomString(length) {
+  let text = '';
+  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  for (let i = 0; i < length; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
+}
+
 export function Login() {
   const handleLogin = () => {
+    const state = generateRandomString(16);
+    localStorage.setItem('spotify_auth_state', state);
+
     const authUrl = new URL("https://accounts.spotify.com/authorize");
     const params = {
       client_id: clientId,
       response_type: "code",
       redirect_uri: redirectUri,
       scope: scopes,
+      state: state,
       show_dialog: true
     };
 

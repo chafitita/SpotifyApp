@@ -1,43 +1,63 @@
-export function Callback() {
+import { useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import axios from "axios";
+
+const backendBaseUrl = import.meta.env.VITE_BACKEND_URL;
+
+export function Callback() { 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get('code');
-
-    if (!code) {
-      navigate('/login'); // Redirige si no hay código
-      return;
-    }
-
-    const getToken = async () => {
+    const handleAuth = async () => {
       try {
+        const urlParams = new URLSearchParams(location.search);
+        const code = urlParams.get("code");
+        const receivedState = urlParams.get("state");
+        const storedState = localStorage.getItem('spotify_auth_state');
+
+        if (!code) {
+          throw new Error("No se encontró el código de autorización");
+        }
+
+        if (!receivedState || receivedState !== storedState) {
+          localStorage.removeItem('spotify_auth_state');
+          throw new Error("El parámetro 'state' no coincide. Posible ataque CSRF.");
+        }
+        localStorage.removeItem('spotify_auth_state');
+
         const response = await axios.post(
-          'https://accounts.spotify.com/api/token',
-          new URLSearchParams({
-            grant_type: 'authorization_code',
-            code,
-            redirect_uri: import.meta.env.VITE_REDIRECT_URI || 'http://localhost:5173/callback',
-            client_id: import.meta.env.VITE_SPOTIFY_CLIENT_ID,
-            client_secret: import.meta.env.VITE_SPOTIFY_CLIENT_SECRET,
-          }),
-          {
-            headers: {
-              'Content-Type': 'application/x-www-form-urlencoded',
-            },
-          }
+          `${backendBaseUrl}/api/spotify/exchange-token`,
+          { code: code },
+          { headers: { "Content-Type": "application/json" } }
         );
 
-        localStorage.setItem('spotify_access_token', response.data.access_token);
-        navigate('/'); // Redirige al home después del login
+
+        const { access_token, expires_in, refresh_token } = response.data;
+
+        if (!access_token) {
+            throw new Error("No se recibió el token de acceso desde el backend.");
+        }
+
+        localStorage.setItem("spotify_access_token", access_token);
+
+        const expiresInMilliseconds = expires_in * 1000;
+        const expiryTime = Date.now() + expiresInMilliseconds;
+        localStorage.setItem("spotify_token_expiry", expiryTime.toString());
+
+        if (refresh_token) {
+            localStorage.setItem("spotify_refresh_token", refresh_token);
+        }
+
+        navigate("/");
       } catch (error) {
-        console.error('Error:', error);
-        navigate('/login');
+        console.error("Error en la autenticación:", error.message || error);
+        navigate("/login", { state: { error: "Error al iniciar sesión con Spotify. Intenta de nuevo." } });
       }
     };
 
-    getToken();
-  }, [navigate]);
+    handleAuth();
+  }, [navigate, location]);
 
-  return <div>Autenticando...</div>;
+  return <div>Procesando autenticación...</div>;
 }
