@@ -12,13 +12,20 @@ body{
   flex-direction: column;
   min-height: 100vh;
 }
-
+.welcome-text {
+  color: white;
+  text-align: center;
+  font-size: 1.8rem;
+  margin-top: 0.5rem;
+  text-shadow: 0 0 10px #1db954;
+}
 .main-content {
   flex-grow: 1; 
   display: flex;
   justify-content: space-around;
   flex-wrap: nowrap;
   align-items: center;
+  flex-direction: column;
 }
 
 footer {
