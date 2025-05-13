@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import LoadingScreen from './components/LoadingScreen';
 import { Login } from './Login';
-import { Callback } from './components/CallBack';
+import { Callback } from './components/CallBack'
 import { SearchArtist } from './components/SearchArtist';
 import { ArtistInfo } from './components/ArtistInfo';
 import { AlbumInfo } from './components/AlbumInfo';
