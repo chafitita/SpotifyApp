@@ -7,7 +7,8 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'http://127.0.0.1:5173',
+  origin: process.env.FRONTEND_URL || 'https://shyntify.netlify.app/',
+  credentials: true,
   optionsSuccessStatus: 200
 };
 app.use(cors(corsOptions));
