@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import LoadingScreen from './components/LoadingScreen';
 import { Login } from './Login';
-import { Callback } from './components/CallBack'
+
 import { SearchArtist } from './components/SearchArtist';
 import { ArtistInfo } from './components/ArtistInfo';
 import { AlbumInfo } from './components/AlbumInfo';
@@ -12,6 +12,7 @@ import { AlbumInfo } from './components/AlbumInfo';
 import './css/App.css';
 import background from './assets/background-op3.gif';
 import title from './assets/Synthify-25-4-2025.png';
+import { Callback } from './components/Callback'
 
 function AppContent() {
   const [isLoading, setIsLoading] = useState(true);
@@ -92,7 +93,7 @@ function AppContent() {
       <main className="main-content">
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/callback" element={<Callback />} />
+          <Route path='/callback' element={<Callback />}/>
           <Route path="/" element={<SearchArtist />} />
           <Route path="/artist/:id" element={<ArtistInfo />} />
           <Route path="/album/:id" element={<AlbumInfo />} />
