@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID;
-const redirectUri = import.meta.env.VITE_REDIRECT_URI || "http://127.0.0.1:5173/callback";
+const redirectUri = import.meta.env.VITE_REDIRECT_URI || "https://shyntify.netlify.app/callback";
 
 const scopes = [
   "user-read-private",
