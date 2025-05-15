@@ -35,7 +35,7 @@ function AppContent() {
       response => response, 
       error => {
         
-        if (error.response?.status === 401) {
+        if (error.response?.status === 401 || error.response?.status === 403) {
           console.log("Interceptor: Token inválido o expirado. Redirigiendo a login.");
           localStorage.removeItem("spotify_access_token");
           localStorage.removeItem("spotify_token_expiry");
