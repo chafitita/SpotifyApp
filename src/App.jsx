@@ -17,6 +17,7 @@ import { Callback } from './components/Callback'
 function AppContent() {
   const [isLoading, setIsLoading] = useState(true);
   const [username, setUsername] = useState("");
+  const [userImagen, setUserImagen] = useState("")
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -69,6 +70,10 @@ function AppContent() {
         .then(response => {
           const name = response.data.display_name || "User";
           setUsername(name);
+
+          if(response.data.images && response.data.images.length > 0){
+            setUserImagen(response.data.images[0].url)
+          }
         })
         .catch(err => {
           console.error("Error al obtener el perfil del usuario:", err);
@@ -87,6 +92,9 @@ function AppContent() {
       <img src={background} alt="Fondo animado de la aplicación" className='background' />
       <header>
         <img src={title} alt="Título de la aplicación Synthify" className='title' />
+        <div>
+          {userImagen && (<img src={userImagen} />)}
+        </div>
         {username && <h2 className='welcome-text'>Welcome!! {username}</h2>}
       </header>
       
