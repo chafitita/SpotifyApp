@@ -93,7 +93,7 @@ function AppContent() {
       <header>
         <img src={title} alt="Título de la aplicación Synthify" className='title' />
         <div>
-          {userImagen && (<img src={userImagen} />)}
+          {userImagen && (<img className='user-img' src={userImagen} />)}
         </div>
         {username && <h2 className='welcome-text'>Welcome!! {username}</h2>}
       </header>
